@@ -1,0 +1,141 @@
+.step-hidden {
+  display: block;
+}
+
+
+.form-step:not(.form-step-active) {
+  display: none;
+}
+
+#nombre_solicitud,
+#nombre_jefe,
+#correo_jefe,
+#nombre_recibe {
+    display: block; /* Asegúrate de que el elemento esté visible */
+    visibility: visible;
+}
+
+
+/* Estilo para la sección de la vista previa */
+#preview {
+  display: block; /* Por defecto oculto */
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+#preview h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#preview p {
+  margin-bottom: 5px;
+}
+
+#preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#preview table, #preview th, #preview td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* Estilo para botones en la vista previa */
+#preview button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+/* Ajustes adicionales según sea necesario */
+/* Animación para mostrar la vista previa */
+#preview {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+* Estilos para ajustar el tamaño de los inputs y selects */
+        #dynamicTable select, #dynamicTable input {
+            width: auto;
+            min-width: 100px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para la tabla responsiva */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        /* Asegurarse de que los select y input no se estiren más allá del espacio disponible */
+        .form-control, .form-select {
+            padding: 0.375rem 0.75rem;
+            height: auto;
+        }
+
+
+        .radio-buttons {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+      }
+      
+      .radio-buttons input[type="radio"] {
+          margin-right: 5px;
+      }
+
+      #email-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border: 2px solid #ddd;
+        margin-top: 20px;
+    }
+    
+    #email-section h2 {
+        margin-top: 0;
+    }
+    
+    #email-section form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #email-section form label {
+        margin-bottom: 5px;
+    }
+    
+    #email-section form input {
+        margin-bottom: 10px;
+        padding: 8px;
+        font-size: 16px;
+    }
+    
+    #email-section form button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    
+    #email-section form button:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+

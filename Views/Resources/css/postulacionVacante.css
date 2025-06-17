@@ -1,0 +1,28 @@
+
+.logo {
+    text-align: center;
+}
+.logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px; /* Espacio entre los campos, ajusta según tus necesidades */
+}
+
+.input-field {
+    flex: 1; /* Esto hará que ambos campos ocupen el mismo ancho */
+}
+
+.form-control {
+    width: 100%; /* Asegura que los campos de entrada ocupen todo el ancho del contenedor .input-field */
+}
+
+/* Opcional: ajustar el tamaño del contenedor en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column; /* Apilar los campos verticalmente en pantallas pequeñas */
+    }
+}

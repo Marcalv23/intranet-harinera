@@ -1,0 +1,14 @@
+.email-item {
+    margin-bottom: 10px; /* Espacio inferior entre los campos de correo */
+}
+.card-body {
+    margin-bottom: 20px; /* Espacio entre secciones */
+    padding: 15px; /* Espacio interno de las secciones */
+}
+.btn {
+    margin-top: 10px; /* Espacio superior para los botones */
+}
+.separator {
+    border-top: 2px solid #eceaea;
+    margin: 20px 0; /* Espacio arriba y abajo del separador */
+}
