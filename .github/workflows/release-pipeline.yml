@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+  workflow_dispatch:  # Permite ejecución manual desde GitHub
 
 jobs:
   test-release:
@@ -33,19 +33,19 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
-          extensions: pdo_mysql, mbstring, curl
+          extensions: pdo_mysql, mbstring, curl, zip
           tools: composer
 
-      - name: 🔧 Instalar dependencias
+      - name: 🔧 Instalar dependencias de Composer
         run: composer install --no-dev --optimize-autoloader
 
-      - name: 🛠️ Dar permisos a scripts
+      - name: 🛠️ Dar permisos de ejecución a los scripts
         run: chmod +x Scripts/*.sh
 
-      - name: 🧪 Ejecutar entorno de liberación
+      - name: 🧪 Configurar entorno de liberación (CI)
         run: ./Scripts/setup-release-env-ci.sh
         env:
           DB_ROOT_PASS: rootpass123
 
-      - name: 🧪 Ejecutar pruebas
+      - name: 🧪 Ejecutar pruebas básicas
         run: ./Scripts/run-tests-ci.sh
