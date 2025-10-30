@@ -1,0 +1,51 @@
+name: Pipeline de Liberación - Intranet Harinera
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+
+jobs:
+  test-release:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpass123
+          MYSQL_DATABASE: intranet_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🐘 Configurar PHP 8.0
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          extensions: pdo_mysql, mbstring, curl
+          tools: composer
+
+      - name: 🔧 Instalar dependencias
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: 🛠️ Dar permisos a scripts
+        run: chmod +x scripts/*.sh
+
+      - name: 🧪 Ejecutar entorno de liberación
+        run: ./scripts/setup-release-env-ci.sh
+        env:
+          DB_ROOT_PASS: rootpass123
+
+      - name: 🧪 Ejecutar pruebas
+        run: ./scripts/run-tests-ci.sh
