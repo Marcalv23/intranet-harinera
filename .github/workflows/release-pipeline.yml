@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:  # Permite ejecución manual desde GitHub
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
 
 jobs:
   test-release:
@@ -36,7 +36,7 @@ jobs:
           extensions: pdo_mysql, mbstring, curl, zip
           tools: composer
 
-      - name: 🔧 Instalar dependencias de Composer
+      - name: 🔧 Instalar dependencias
         run: composer install --no-dev --optimize-autoloader
 
       - name: 🛠️ Dar permisos de ejecución a los scripts
@@ -47,5 +47,5 @@ jobs:
         env:
           DB_ROOT_PASS: rootpass123
 
-      - name: 🧪 Ejecutar pruebas básicas
+      - name: 🧪 Ejecutar pruebas de conexión y estructura
         run: ./Scripts/run-tests-ci.sh
