@@ -40,12 +40,12 @@ jobs:
         run: composer install --no-dev --optimize-autoloader
 
       - name: 🛠️ Dar permisos a scripts
-        run: chmod +x scripts/*.sh
+        run: chmod +x Scripts/*.sh
 
       - name: 🧪 Ejecutar entorno de liberación
-        run: ./scripts/setup-release-env-ci.sh
+        run: ./Scripts/setup-release-env-ci.sh
         env:
           DB_ROOT_PASS: rootpass123
 
       - name: 🧪 Ejecutar pruebas
-        run: ./scripts/run-tests-ci.sh
+        run: ./Scripts/run-tests-ci.sh
